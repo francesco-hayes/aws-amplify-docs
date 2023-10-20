@@ -8,10 +8,12 @@ import { IconChevron } from '@/components/Icons';
 import { trackPageVisit } from '@/utils/track';
 import LinkCard from '@/components/LinkCard';
 import LinkCardCollection from '@/components/LinkCardCollection';
-import { IconGithub } from '@/components/Icons';
-import { IconDiscord } from '@/components/Icons';
-import { IconAmplify } from '@/components/Icons';
-import { IconLearn } from '@/components/Icons';
+import {
+  IconGithub,
+  IconDiscord,
+  IconAmplify,
+  IconLearn
+} from '@/components/Icons';
 
 const meta = {
   title: 'Amplify Docs',
@@ -20,7 +22,7 @@ const meta = {
   url: 'https://docs.amplify.aws/'
 };
 
-export default function Page() {
+export default function Page({ platform }) {
   useEffect(() => {
     trackPageVisit();
   }, []);
@@ -75,42 +77,26 @@ export default function Page() {
           on AWS. Get started by selecting your preferred framework.
         </Text>
       </Flex>
-      <LinkCardCollection>
-        <LinkCard
-          isExternal={true}
-          href={''}
-          icon={() => <IconGithub fontSize="2rem" />}
-        >
-          {'JavaScript Libraries on Github'}
-        </LinkCard>
-        <LinkCard
-          isExternal={true}
-          href={''}
-          icon={() => <IconDiscord fontSize="2rem" />}
-        >
-          {'Amplify Discord'}
-        </LinkCard>
-        <LinkCard
-          isExternal={true}
-          href={''}
-          icon={() => <IconAmplify fontSize="2rem" />}
-        >
-          {"What's next for Amplify"}
-        </LinkCard>
-        <LinkCard
-          isExternal={true}
-          href={''}
-          icon={() => <IconLearn fontSize="2rem" />}
-        >
-          {'Amplify Learn'}
-        </LinkCard>
-      </LinkCardCollection>
       <Flex direction="column" alignItems="flex-start">
         <Heading level={2}>Features for JavaScript</Heading>
         <Button as="a" href="/">
           View all features
         </Button>
       </Flex>
+      <LinkCardCollection>
+        <LinkCard isExternal={true} href="" icon={<IconGithub />}>
+          Javascript Libraries on Github
+        </LinkCard>
+        <LinkCard isExternal={true} href="" icon={<IconDiscord />}>
+          {'Amplify Discord'}
+        </LinkCard>
+        <LinkCard isExternal={true} href="" icon={<IconAmplify />}>
+          {"What's next for Amplify"}
+        </LinkCard>
+        <LinkCard isExternal={true} href="" icon={<IconLearn />}>
+          {'Amplify Learn'}
+        </LinkCard>
+      </LinkCardCollection>
     </Flex>
   );
 }
